@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search results</title>
+    <style>
+        table{width:100%;}
+        table td, table th { border: 1px solid grey;}
+        table th { background: #eee;}
+        .pagination-div{user-select: none;}
+        .pagination-div span{border-radius:3px;border:1px solid #999;
+            padding:5px;margin:10px 0px 0px 10px;display:inline-block}
+        span.selected{background:#ccf;}
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Obligatory</th>
+        <th>Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="part : ${foundParts}">
+        <td th:text="${part.getId()}">Id</td>
+        <td th:text="${part.getName()}">Name</td>
+        <td th:text="${part.isOblig()}">Obligatory</td>
+        <td th:text="${part.getCount()}">Count</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
