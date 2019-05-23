@@ -28,7 +28,7 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String getAllParts(@PageableDefault Pageable pageable, Model model) {
+    public String getAllParts(@PageableDefault(size=10, sort="id") Pageable pageable, Model model) {
         Page<Part> page = partRepository.findAll(pageable);
         List<Sort.Order> sortOrders = page.getSort().stream().collect(Collectors.toList());
         if (sortOrders.size() > 0) {
